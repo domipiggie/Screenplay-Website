@@ -40,20 +40,15 @@
                 }
             }
         }
+
+        function search(){
+            window.location.href = window.location.href+"search?search="+document.getElementById("search").value
+        }
     </script>
 </head>
 <body>
-    <input type="button" value="post" onclick="postStuff()">
-    <input type="button" value="get" onclick="getStuff()">
-
-    <div>
-        {% for screenplay in screenplays %}
-        <div>
-            <h1>{{ screenplay.title }}</h1>
-            <p>By: {{ screenplay.author }}</p>
-            <p>{{ screenplay.shortDesc }}</p>
-        </div>
-        {% endfor %}
-    </div>
+    <h1>HomePage</h1>
+    <input type="text" id="search">
+    <input type="button" value="Search" onclick="search()">
 </body>
 </html>
