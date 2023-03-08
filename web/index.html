@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eee</title>
+    <script>
+        const postRequest = new XMLHttpRequest();
+        const getRequest = new XMLHttpRequest();
+        const postURL = "http://127.0.0.1:8000"
+        const getURL = "http://127.0.0.1:8000/getTest"
+
+
+
+        function getStuff(){
+            getRequest.open("GET", getURL)
+            getRequest.send();
+
+            getRequest.onreadystatechange=(e)=>{
+                if (getRequest.readyState == 4){
+                    console.log(getRequest.responseText)
+                }
+            }
+        }
+
+        function postStuff(){ 
+            postRequest.open("POST", postURL)
+            postRequest.setRequestHeader('Content-type', 'application/json');
+
+            var params = {
+                message: "EA SPORTS"
+            }
+
+            postRequest.send(JSON.stringify(params));
+
+            postRequest.onreadystatechange=(e)=>{
+                if (postRequest.readyState == 4){
+                    console.log(postRequest.responseText)
+                }
+            }
+        }
+
+        function search(){
+            window.location.href = window.location.href+"search?search="+document.getElementById("search").value
+        }
+    </script>
+</head>
+<body>
+    <h1>HomePage</h1>
+    <input type="text" id="search">
+    <input type="button" value="Search" onclick="search()">
+</body>
+</html>

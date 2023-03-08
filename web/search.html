@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <script>
+        function search(){
+            window.location.href = window.location.href.split("?")[0]+"?search="+document.getElementById("search").value
+        }
+        function showSelectedResult(name){
+            window.location.href = window.location.href.split("/")[0]+"/screenplayss/"+name
+        }
+    </script>
+</head>
+<body>
+    <h1>Search</h1>
+
+    <input type="text" id="search">
+    <input type="button" value="Search" onclick="search()">
+
+    <div>
+        {% if results %}
+        {% for result in results %}
+        <div>
+            <h1>{{ result[1] }}</h1>
+            <p>By: {{ result[2] }}</p>
+            <p>{{ result[3] }}</p>
+            <a href="screen?screen={{ result[3] }}">asd</a>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</body>
+</html>
