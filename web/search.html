@@ -9,6 +9,9 @@
         function search(){
             window.location.href = window.location.href.split("?")[0]+"?search="+document.getElementById("search").value
         }
+        function showSelectedResult(name){
+            window.location.href = window.location.href.split("/")[0]+"/screenplayss/"+name
+        }
     </script>
 </head>
 <body>
@@ -21,9 +24,10 @@
         {% if results %}
         {% for result in results %}
         <div>
-            <h1>{{ result.title }}</h1>
-            <p>By: {{ result.author }}</p>
-            <p>{{ result.shortDesc }}</p>
+            <h1>{{ result[1] }}</h1>
+            <p>By: {{ result[2] }}</p>
+            <p>{{ result[3] }}</p>
+            <a href="screen?screen={{ result[3] }}">asd</a>
         </div>
         {% endfor %}
         {% endif %}
