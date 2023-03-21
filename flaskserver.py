@@ -8,7 +8,7 @@ DBcursor = DataBase.cursor()
 app = Flask(__name__, template_folder="")
 CORS(app)
 
-screenplays = [a for a in DBcursor.execute("SELECT * FROM screenplays")]
+screenplays = [a for a in DBcursor.execute("SELECT * FROM screenplays ORDER BY screenplays.title")]
 
 
 @app.route("/")
