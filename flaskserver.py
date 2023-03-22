@@ -8,7 +8,7 @@ DBcursor = DataBase.cursor()
 app = Flask(__name__, template_folder="")
 CORS(app)
 
-screenplays = [a for a in DBcursor.execute("SELECT * FROM screenplays")]
+screenplays = [a for a in DBcursor.execute("SELECT * FROM screenplays ORDER BY screenplays.title")]
 
 
 @app.route("/")
@@ -26,13 +26,11 @@ def searchPage():
     toSearch = request.args.get('search', None)
     
     if (not toSearch):
-        print("eee")
-        return render_template('/web/search.html')
+        return render_template('/web/search.html', results=screenplays)
     
     results = []
     
     for i in screenplays:
-        print(i[1])
         if i[1].lower().find(toSearch.lower()) != -1:
             results.append(i)
     
