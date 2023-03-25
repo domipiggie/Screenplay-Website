@@ -1,19 +1,50 @@
 <!DOCTYPE html>
-<html lang="hu">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eee</title>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- Styles -->
+    <title>Document</title>
     <script>
-        function search(){
-            window.location.href = window.location.href+"search?search="+document.getElementById("search").value
-        }
-    </script>
-</head>
-<body>
-    <h1>HomePage</h1>
-    <input type="text" id="search">
-    <input type="button" value="Search" onclick="search()">
-</body>
+      function search(){
+          window.location.href = window.location.href+"search?search="+document.getElementById("search").value
+      }
+  </script>
+      </head>
+
+      <body>
+        
+
+        <nav>
+          <div class="nav-center">
+            <!-- nav header -->
+            <div class="nav-header">
+              <h2>Script Finder</h2>
+              <!-- <img src="./logo.svg" class="logo" alt="logo" /> -->
+              <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+              </button>
+            </div>
+            <!-- links -->
+            <ul class="links">
+              <li>
+                <a href="index.html">Főoldal</a>
+              </li>
+              <li>
+                <a href="about.html">Minden draft/screenplay</a>
+              </li>
+              <li>
+                <a href="projects.html">A projektről</a>
+              </li>
+            </ul>
+
+        <input type="text" id="search">
+        <input type="button" value="Search" onclick="search()">
+            
+            
+            
+    
+  </body>
 </html>
