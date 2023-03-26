@@ -5,12 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="slideshow.css">
     <!-- Styles -->
     <title>Document</title>
     <script>
+      //kereső
       function search(){
           window.location.href = window.location.href+"search?search="+document.getElementById("search").value
       }
+
+      //slider
+      let slideIndex = 0;
+      showSlides();
+  
+      function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}    
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+      setTimeout(showSlides, 3000); // Change image every 2 seconds
+  }
+
   </script>
       </head>
 
@@ -33,16 +57,48 @@
                 <a href="index.html">Főoldal</a>
               </li>
               <li>
-                <a href="about.html">Minden draft/screenplay</a>
+                <a href="drafts.html">Minden draft/screenplay</a>
               </li>
               <li>
-                <a href="projects.html">A projektről</a>
+                <a href="project.html">A projektről</a>
               </li>
             </ul>
 
         <input type="text" id="search">
         <input type="button" value="Search" onclick="search()">
-            
+
+            <div class="slideshow-container">
+              
+
+                  <div class="mySlides fade">
+                  <div class="numbertext">1 / 3</div>
+                  <img src="action_movies.jpg" style="width:100%">
+                  <div class="text">Caption Text</div>
+                </div>
+                
+                <div class="mySlides fade">
+                  <div class="numbertext">2 / 3</div>
+                  <img src="old_horrors.jpg" style="width:100%">
+                  <div class="text">Caption Two</div>
+                </div>
+                
+                <div class="mySlides fade">
+                  <div class="numbertext">3 / 3</div>
+                  <img src="Spaghetti-Westerns.jpg" style="width:100%">
+                  <div class="text">Caption Three</div>
+                </div>
+
+                </div>
+                <br>
+                
+                <div style="text-align:center">
+                  <span class="dot"></span> 
+                  <span class="dot"></span> 
+                  <span class="dot"></span> 
+                </div>
+              </div>
+            </div>
+  
             
             
     
