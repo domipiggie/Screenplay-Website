@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-    <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="stylesheet" href="/static/css/slideshow.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/slideshow.css">
     <!-- Styles -->
     <title>Document</title>
     <script>
@@ -39,8 +40,6 @@
       </head>
 
       <body>
-        
-
         <nav>
           <div class="nav-center">
             <!-- nav header -->
@@ -59,32 +58,29 @@
               <li>
                 <a href="">Minden draft/screenplay</a>
               </li>
-              <li>
-                <a href="">A projektről</a>
-              </li>
             </ul>
+          </div>
+        </nav>  
 
-        <input type="text" id="search">
-        <input type="button" value="Search" onclick="search()">
+        
 
             <div class="slideshow-container">
-              
-
+          
                   <div class="mySlides fade">
                   <div class="numbertext">1 / 3</div>
-                  <img src="/static/pics/action-movies.jpg" style="width:100%">
+                  <img src="../static/pics/action-movies.jpg" style="width:100%">
                   <div class="text">Caption Text</div>
                 </div>
                 
                 <div class="mySlides fade">
                   <div class="numbertext">2 / 3</div>
-                  <img src="/static/pics/old_horrors.jpg" style="width:100%">
+                  <img src="../static/pics/old_horrors.jpg" style="width:100%">
                   <div class="text">Caption Two</div>
                 </div>
                 
                 <div class="mySlides fade">
                   <div class="numbertext">3 / 3</div>
-                  <img src="/static/pics/Spaghetti-Westerns.jpg" style="width:100%">
+                  <img src="../static/pics/Spaghetti-Westerns.jpg" style="width:100%">
                   <div class="text">Caption Three</div>
                 </div>
 
@@ -96,10 +92,39 @@
                   <span class="dot"></span> 
                   <span class="dot"></span> 
                 </div>
-              </div>
-            </div>
+
+          <div class="row">
+            <div class="col-sm-7" id="big-white"> 
+
+              <input type="text" id="search" class="w-75 searchTerm" placeholder=" Ide írj">
+              <input type="button"  class="searchButton" value="Search" onclick="search()">
+              <div class="baloldal">
+                    <div  id="card"> 
+                      teszt
+                    </div>
+                    <div class="space"></div>
+                    <div  id="card"> 
+                      teszt
+                    </div>
+                  </div>
+                  <div class="jobboldal">
+                    <div  id="card"> 
+                      teszt
+                    </div>
+                    <div class="space"></div>
+                    <div id="card"> 
+                      teszt
+                    </div>
+                  </div>
+                  
   
+            </div>
+
             
+            <div class="col-sm-4" id="little-white"> 
+              
+            </div>
+          </div>
             
     
   </body>
