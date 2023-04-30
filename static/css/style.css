@@ -4,7 +4,8 @@ body {
   box-sizing: border-box;
   margin: 0;
   font-family: 'Alata', sans-serif;
-  background-color: rgb(0, 0, 0);
+  background-color: white;
+  
 }
 ul {
   list-style-type: none;
@@ -16,7 +17,7 @@ a {
 
 /* Navbar */
 nav {
-  background: #363c3e;
+  background: #01080a;
   box-shadow: 3px 0px 2px #c95858;
   color: aliceblue;
 }
@@ -115,15 +116,16 @@ nav {
     color: #493b2a;
   }
 #big-white {
-  background-color: white;
-  margin: 30px;
+  background-color: bisque;
+  margin: 40px;
+  margin-left: 45px;
+  border: 1px solid black;
 }
 
 #little-white{
   background-color: white;
-  margin-right: 30px;
   margin-top: 30px;
-  margin-bottom: 30px;
+  border: 1px solid black;
 
 }
 
