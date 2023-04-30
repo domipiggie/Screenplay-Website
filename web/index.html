@@ -38,6 +38,50 @@
   }
 
   </script>
+  <style>
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		.row {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+		}
+		.box {
+			background-color: #f2f2f2;
+			border: 1px solid #ccc;
+			margin: 10px;
+			padding: 80px;
+			text-align: center;
+			width: 500px;
+			max-width: 100%;
+		}
+		.search-form {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			margin-bottom: 10px;
+		}
+		.search-input {
+			margin-right: 10px;
+			padding: 10px;
+			width: 400px;
+		}
+		.search-button {
+			background-color: #4CAF50;
+			border: none;
+			color: white;
+			padding: 10px 20px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			cursor: pointer;
+		}
+	</style>
       </head>
 
       <body>
@@ -64,47 +108,33 @@
               </li>
             </ul>
           </div>
-        </nav> 
-
-        
-                <br>
-                
-                <div style="text-align:center">
-                  <span class="dot"></span> 
-                  <span class="dot"></span> 
-                  <span class="dot"></span> 
-                </div>
-
+        </nav>   
+        <div class="container">
+          <div class="search-form">
+            <input type="text" class="search-input" placeholder="Keresés...">
+            <button type="button" class="search-button">Keresés</button>
+          </div>
+          <!-- A 4 box -->
           <div class="row">
-            <div class="col-sm-7" id="big-white"> 
-
-              <div class="baloldal">
-                    <div  id="card"> 
-                      teszt
-                    </div>
-                    <div class="space"></div>
-                    <div  id="card"> 
-                      teszt
-                    </div>
-                  </div>
-                  <div class="jobboldal">
-                    <div  id="card"> 
-                      teszt
-                    </div>
-                    <div class="space"></div>
-                    <div id="card"> 
-                      teszt
-                    </div>
-                  </div>
-                  
-  
+            <div class="box">
+              <h2>Box 1</h2>
+              <p>Ez a box az első felső box.</p>
             </div>
-
-            
-            <div class="col-sm-4" id="little-white"> 
-              <div class="mb-3">
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Kezdjen el gépelni...">
-                <input type="button" class="btn btn-warning" class="searchButton" value="Search" onclick="search()">
-              </div>
+            <div class="box">
+              <h2>Box 2</h2>
+              <p>Ez a box a második felső box.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="box">
+              <h2>Box 3</h2>
+              <p>Ez a box az első alsó box.</p>
+            </div>
+            <div class="box">
+              <h2>Box 4</h2>
+              <p>Ez a box a második alsó box.</p>
+            </div>
+          </div>
+        </div>
   </body>
 </html>
