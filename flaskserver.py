@@ -16,8 +16,10 @@ screenplays = [a for a in DBcursor.execute("SELECT * FROM screenplays ORDER BY s
 def homePage():
     randomScripts = []
     
-    for i in range(0, 4):
-        randomScripts.append(screenplays[random.randint(0, (len(screenplays)-1))])
+    while len(randomScripts) < 4:
+        currentScript = screenplays[random.randint(0, (len(screenplays)-1))]
+        if currentScript not in randomScripts:
+            randomScripts.append(currentScript)
     
     return render_template('/web/index.html', randoms=randomScripts)
 
