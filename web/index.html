@@ -11,33 +11,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <!-- Styles -->
   <title>Üdvözöljük Weboldalunkon!</title>
-  <script>
-    //kereső
-    function search() {
-      window.location.href = window.location.href + "search?search=" + document.getElementById("search").value
-    }
-
-    //slider
-    let slideIndex = 0;
-    showSlides();
-
-    function showSlides() {
-      let i;
-      let slides = document.getElementsByClassName("mySlides");
-      let dots = document.getElementsByClassName("dot");
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slideIndex++;
-      if (slideIndex > slides.length) { slideIndex = 1 }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex - 1].style.display = "block";
-      dots[slideIndex - 1].className += " active";
-      setTimeout(showSlides, 3000); // Change image every 2 seconds
-    }
-  </script>
   <style>
     .container {
       display: flex;
@@ -165,7 +138,7 @@
   <div class="container">
     <div class="search-box">
       <input type="text" class="form-control" id="search" placeholder="Kezdjen el gépelni...">
-      <button type="submit" onclick="search()">Keresés</button>
+      <button type="submit" id="searchButton" onclick="search()">Keresés</button>
     </div>
     <div class="row">
       {% if randoms %}
@@ -185,7 +158,23 @@
       <p>A fejlesztők nagyon sokat dolgoztak azon, hogy ön megtalálja kedvenc tartalmát. Úgy gondoljuk, hogy tudná
         honorálni munkánkat egy 5-ös osztályzattal.</p>
     </div>
+  </div>
 
+
+  <script>
+    let searchField = document.getElementById("search")
+
+    function search(){
+      window.location.href = window.location.href + "search?search=" + document.getElementById("search").value
+    }
+
+    searchField.addEventListener("keypress", function(event){
+      if (event.key == "Enter"){
+        event.preventDefault()
+        document.getElementById("searchButton").click()
+      }
+    })
+  </script>
 </body>
 
 </html>
