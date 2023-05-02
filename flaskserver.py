@@ -2,6 +2,7 @@ from datetime import date
 from flask import Flask, request, render_template, make_response, send_file
 from flask_cors import CORS
 import sqlite3
+import random
 
 DataBase = sqlite3.connect("screenData.db")
 DBcursor = DataBase.cursor()
@@ -13,7 +14,12 @@ screenplays = [a for a in DBcursor.execute("SELECT * FROM screenplays ORDER BY s
 
 @app.route("/")
 def homePage():
-    return render_template('/web/index.html')
+    randomScripts = []
+    
+    for i in range(0, 4):
+        randomScripts.append(screenplays[random.randint(0, (len(screenplays)-1))])
+    
+    return render_template('/web/index.html', randoms=randomScripts)
 
 @app.route("/screen", methods=["GET"])
 def screenPage():

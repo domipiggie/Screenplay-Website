@@ -123,13 +123,13 @@
       border-radius: 5px;
       cursor: pointer;
     }
-    
+
     input[type="text"]:focus {
       outline-color: #ff9900;
     }
 
     .green-box {
-      background-color:#3CB371;
+      background-color: #3CB371;
       color: #fff;
       margin: 10px;
       padding: 80px;
@@ -169,30 +169,22 @@
       <button type="submit" onclick="search()">Keresés</button>
     </div>
     <div class="row">
+      {% if randoms %}
+      {% for random in randoms %}
       <div class="box">
-        <h2>Box 1</h2>
-        <p>Ez a box az első felső box.</p>
+        <h2>{{ random[1] }}</h2>
+        <p>{{ random[2] }}</p>
+        <a href="screen?screen={{ random[3] }}" target="_blank">Megtekintés</a>
       </div>
-      <div class="box">
-        <h2>Box 2</h2>
-        <p>Ez a box a második felső box.</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="box">
-        <h2>Box 3</h2>
-        <p>Ez a box az első alsó box.</p>
-      </div>
-      <div class="box">
-        <h2>Box 4</h2>
-        <p>Ez a box a második alsó box.</p>
-      </div>
+      {% endfor %}
+      {% endif %}
     </div>
   </div>
   <div class="row">
     <div class="green-box">
       <h2>Tudta?</h2>
-      <p>A fejlesztők nagyon sokat dolgoztak azon, hogy ön megtalálja kedvenc tartalmát. Úgy gondoljuk, hogy tudná honorálni munkánkat egy 5-ös osztályzattal.</p>
+      <p>A fejlesztők nagyon sokat dolgoztak azon, hogy ön megtalálja kedvenc tartalmát. Úgy gondoljuk, hogy tudná
+        honorálni munkánkat egy 5-ös osztályzattal.</p>
     </div>
 
 </body>
