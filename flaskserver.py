@@ -1,5 +1,5 @@
 from datetime import date
-from flask import Flask, request, render_template, make_response
+from flask import Flask, request, render_template, make_response, send_file
 from flask_cors import CORS
 import sqlite3
 
@@ -27,6 +27,9 @@ def searchPage():
     
     if (not toSearch):
         return render_template('/web/search.html', results=screenplays)
+    
+    if (toSearch == "bátya"):
+        return send_file('./static/pics/orangyalok.jpg', mimetype='image/gif')
     
     results = []
     
