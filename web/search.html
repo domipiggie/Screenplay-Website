@@ -8,10 +8,7 @@
     <title>Search</title>
     <script>
         function search(){
-            window.location.href = window.location.href.split("?")[0]+"?search="+document.getElementById("search").value
-        }
-        function showSelectedResult(name){
-            window.location.href = window.location.href.split("/")[0]+"/screenplayss/"+name
+            window.location.href = window.location.href.split("?")[0]+"?q="+document.getElementById("search").value
         }
     </script>
 </head>
@@ -28,7 +25,7 @@
             <h1>{{ result[1] }}</h1>
             <p>By: {{ result[2] }}</p>
             <p>{{ result[5] }}</p>
-            <a href="screen?screen={{ result[5] }}" target="_blank">asd</a>
+            <a href="screen?s={{ result[5] }}" target="_blank">asd</a>
         </div>
         {% endfor %}
         {% endif %}
