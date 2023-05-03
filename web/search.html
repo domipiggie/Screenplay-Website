@@ -12,14 +12,6 @@
     <link rel="icon" href="https://cdn.logojoy.com/wp-content/uploads/2018/05/29153827/81.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Search</title>
-    <script>
-        function search() {
-            window.location.href = window.location.href.split("?")[0] + "?search=" + document.getElementById("search").value
-        }
-        function showSelectedResult(name) {
-            window.location.href = window.location.href.split("/")[0] + "/screenplayss/" + name
-        }
-    </script>
     <style>
         .green-box {
             background-color: #8BC34A;
@@ -176,6 +168,21 @@
 
 
         </center>
+        <script>
+            let dramaCheckbox = document.getElementById("genre-drama")
+            let comedyCheckbox = document.getElementById("genre-comedy")
+    
+            function search(){
+                let filters = ""
+    
+                if (dramaCheckbox.checked){filters+=",dráma"}
+                if (comedyCheckbox.checked){filters+=",komédia"}
+    
+                if (filters.startsWith(",")){filters = filters.slice(1)}
+    
+                window.location.href = window.location.href.split("?")[0]+"?q="+document.getElementById("search").value + "&f=" + filters
+            }
+        </script>
 </body>
 
 </html>
