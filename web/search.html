@@ -1,37 +1,63 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://cdn.logojoy.com/wp-content/uploads/2018/05/29153827/81.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon" href="https://cdn.logojoy.com/wp-content/uploads/2018/05/29153827/81.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Search</title>
     <script>
-        function search(){
-            window.location.href = window.location.href.split("?")[0]+"?search="+document.getElementById("search").value
+        function search() {
+            window.location.href = window.location.href.split("?")[0] + "?search=" + document.getElementById("search").value
         }
-        function showSelectedResult(name){
-            window.location.href = window.location.href.split("/")[0]+"/screenplayss/"+name
+        function showSelectedResult(name) {
+            window.location.href = window.location.href.split("/")[0] + "/screenplayss/" + name
         }
     </script>
+    <style>
+        .green-box {
+            background-color: #8BC34A;
+            padding: 20px;
+        }
+
+        .result-box {
+            background-color: #FFF;
+            padding: 20px;
+            margin-bottom: 10px;
+            margin-top:20px;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Search</h1>
+    <div class="container">
+        <center>
+            <h1>Search</h1>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="search" placeholder="Keresés" aria-label="Keresés"
+                    aria-describedby="button-addon2">
+                <button type="submit" class="btn btn-warning" onclick="search()" id="searchButton">Keresés</button>
+            </div>
+            <div class="green-box">
+                {% if results %}
+                {% for result in results %}
+                <div class="result-box">
+                    <h1>{{ result[1] }}</h1>
+                    <p>By: {{ result[2] }}</p>
+                    <p>{{ result[5] }}</p>
+                    <a href="screen?screen={{ result[5] }}" target="_blank">asd</a>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
 
-    <input type="text" id="search">
-    <input type="button" value="Search" onclick="search()">
-
-    <div>
-        {% if results %}
-        {% for result in results %}
-        <div>
-            <h1>{{ result[1] }}</h1>
-            <p>By: {{ result[2] }}</p>
-            <p>{{ result[5] }}</p>
-            <a href="screen?screen={{ result[5] }}" target="_blank">asd</a>
-        </div>
-        {% endfor %}
-        {% endif %}
-    </div>
+        </center>
 </body>
+
 </html>
