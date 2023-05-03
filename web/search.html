@@ -1,52 +1,181 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://cdn.logojoy.com/wp-content/uploads/2018/05/29153827/81.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon" href="https://cdn.logojoy.com/wp-content/uploads/2018/05/29153827/81.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Search</title>
-</head>
-<body>
-    <h1>Search</h1>
-
-    <div>
-        <label for="genre-drama">Dráma</label>
-        <input type="checkbox" id="genre-drama" name="genre-drama">
-        <label for="genre-comedy">Komédia</label>
-        <input type="checkbox" id="genre-comedy" name="genre-comedy">
-    </div>
-
-    <input type="text" id="search">
-    <input type="button" value="Search" onclick="search()">
-
-    <div>
-        {% if results %}
-        {% for result in results %}
-        <div>
-            <h1>{{ result[1] }}</h1>
-            <p>By: {{ result[2] }}</p>
-            <p>{{ result[5] }}</p>
-            <a href="screen?s={{ result[5] }}" target="_blank">asd</a>
-        </div>
-        {% endfor %}
-        {% endif %}
-    </div>
-
     <script>
-        let dramaCheckbox = document.getElementById("genre-drama")
-        let comedyCheckbox = document.getElementById("genre-comedy")
-
-        function search(){
-            let filters = ""
-
-            if (dramaCheckbox.checked){filters+=",dráma"}
-            if (comedyCheckbox.checked){filters+=",komédia"}
-
-            if (filters.startsWith(",")){filters = filters.slice(1)}
-
-            window.location.href = window.location.href.split("?")[0]+"?q="+document.getElementById("search").value + "&f=" + filters
+        function search() {
+            window.location.href = window.location.href.split("?")[0] + "?search=" + document.getElementById("search").value
+        }
+        function showSelectedResult(name) {
+            window.location.href = window.location.href.split("/")[0] + "/screenplayss/" + name
         }
     </script>
+    <style>
+        .green-box {
+            background-color: #8BC34A;
+            padding: 20px;
+        }
+
+        .result-box {
+            background-color: #FFF;
+            padding: 20px;
+            margin: 40px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .box {
+            background-color: #ff9900;
+            color: #fff;
+            margin: 10px;
+            padding: 80px;
+            text-align: center;
+            width: 500px;
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .search-form {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .search-input {
+            margin-right: 10px;
+            padding: 10px;
+            width: 400px;
+        }
+
+        .search-button {
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 25px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .search-box input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            width: 400px;
+            margin-right: 10px;
+            border: 1px solid black;
+        }
+
+        .search-box button[type="submit"] {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #ff9900;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="text"]:focus {
+            outline-color: #ff9900;
+        }
+
+        .green-box {
+            background-color: #3CB371;
+            color: #fff;
+            margin: 10px;
+            padding: 80px;
+            text-align: center;
+            max-width: 1025px;
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 120px;
+        }
+
+        #megtekintes {
+            text-decoration: none;
+            color: black;
+        }
+
+        #megtekintes:hover {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <center>
+            <h1>Search</h1>
+            <div>
+                <label for="genre-drama">Dráma</label>
+                <input type="checkbox" id="genre-drama" name="genre-drama">
+                <label for="genre-comedy">Komédia</label>
+                <input type="checkbox" id="genre-comedy" name="genre-comedy">
+            </div>
+            <div class="search-box">
+                <input type="text" class="form-control" id="search" placeholder="Kezdjen el gépelni..."
+                    style="border: 1px solid #ccc;">
+                <button type="submit" onclick="search()" id="searchButton">Keresés</button>
+            </div>
+
+            <div class="row">
+                {% if results %}
+                {% for result in results %}
+                <div class="box">
+                    <h1>{{ result[1] }}</h1>
+                    <p>By: {{ result[2] }}</p>
+                    <p>{{ result[5] }}</p>
+                    <a href="screen?screen={{ result[5] }}" target="_blank" id="megtekintes">asd</a>
+                </div>
+                {% if loop.index % 3 == 0 %}
+                <div class="medium-gap"></div>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+            </div>
+
+
+        </center>
 </body>
+
 </html>
