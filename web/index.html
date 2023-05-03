@@ -169,7 +169,7 @@
     let searchField = document.getElementById("search")
 
     function search(){
-      window.location.href = window.location.href + "search?search=" + document.getElementById("search").value
+      window.location.href = window.location.href + "search?q=" + document.getElementById("search").value
     }
 
     searchField.addEventListener("keypress", function(event){

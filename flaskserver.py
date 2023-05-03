@@ -23,7 +23,7 @@ def homePage():
     
     return render_template('/web/index.html', randoms=randomScripts)
 
-@app.route("/screen", methods=["GET"])
+@app.route("/s", methods=["GET"])
 def screenPage():
     response = make_response(open('./screenplays/'+request.args.get('screen', None), "rb"))
     response.headers['Content-Type'] = 'application/pdf'
@@ -31,7 +31,7 @@ def screenPage():
 
 @app.route("/search", methods=["GET"])
 def searchPage():
-    toSearch = request.args.get('search', None)
+    toSearch = request.args.get('q', None)
     
     if (not toSearch):
         return render_template('/web/search.html', results=screenplays)

@@ -13,11 +13,16 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Search</title>
     <script>
+<<<<<<< HEAD
         function search() {
             window.location.href = window.location.href.split("?")[0] + "?search=" + document.getElementById("search").value
         }
         function showSelectedResult(name) {
             window.location.href = window.location.href.split("/")[0] + "/screenplayss/" + name
+=======
+        function search(){
+            window.location.href = window.location.href.split("?")[0]+"?q="+document.getElementById("search").value
+>>>>>>> 19faf2604d2057a6a36c4d8711f50bced5196768
         }
     </script>
     <style>
@@ -57,7 +62,25 @@
                 {% endif %}
             </div>
 
+<<<<<<< HEAD
         </center>
+=======
+    <input type="text" id="search">
+    <input type="button" value="Search" onclick="search()">
+
+    <div>
+        {% if results %}
+        {% for result in results %}
+        <div>
+            <h1>{{ result[1] }}</h1>
+            <p>By: {{ result[2] }}</p>
+            <p>{{ result[5] }}</p>
+            <a href="screen?s={{ result[5] }}" target="_blank">asd</a>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+>>>>>>> 19faf2604d2057a6a36c4d8711f50bced5196768
 </body>
 
 </html>
