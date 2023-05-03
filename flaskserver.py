@@ -32,8 +32,10 @@ def screenPage():
 @app.route("/search", methods=["GET"])
 def searchPage():
     toSearch = request.args.get('q', None)
+    filters = request.args.get('f', None)
+    print(filters)
     
-    if (not toSearch):
+    if (not toSearch and not filters):
         return render_template('/web/search.html', results=screenplays)
     
     if (toSearch == "bátya"):
@@ -41,11 +43,27 @@ def searchPage():
     
     results = []
     
+    if (not filters):
+        for i in screenplays:
+            if i[1].lower().find(toSearch.lower()) != -1:
+                results.append(i)
+        
+        return render_template('/web/search.html', results=results)
+
     for i in screenplays:
-        if i[1].lower().find(toSearch.lower()) != -1:
+        isCorrect = True
+        
+        j = 0
+        while isCorrect and j < len(filters):
+            if (i[3].find(filters[j]) == -1):
+                isCorrect = False
+            j+=1
+        
+        if (isCorrect):
             results.append(i)
+                
     
     return render_template('/web/search.html', results=results)
 
 
-app.run(host='0.0.0.0', port=8000, debug=True)
+app.run(host='0.0.0.0', port=80, debug=True)

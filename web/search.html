@@ -6,14 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://cdn.logojoy.com/wp-content/uploads/2018/05/29153827/81.png">
     <title>Search</title>
-    <script>
-        function search(){
-            window.location.href = window.location.href.split("?")[0]+"?q="+document.getElementById("search").value
-        }
-    </script>
 </head>
 <body>
     <h1>Search</h1>
+
+    <div>
+        <label for="genre-drama">Dráma</label>
+        <input type="checkbox" id="genre-drama" name="genre-drama">
+        <label for="genre-comedy">Komédia</label>
+        <input type="checkbox" id="genre-comedy" name="genre-comedy">
+    </div>
 
     <input type="text" id="search">
     <input type="button" value="Search" onclick="search()">
@@ -30,5 +32,21 @@
         {% endfor %}
         {% endif %}
     </div>
+
+    <script>
+        let dramaCheckbox = document.getElementById("genre-drama")
+        let comedyCheckbox = document.getElementById("genre-comedy")
+
+        function search(){
+            let filters = ""
+
+            if (dramaCheckbox.checked){filters+=",dráma"}
+            if (comedyCheckbox.checked){filters+=",komédia"}
+
+            if (filters.startsWith(",")){filters = filters.slice(1)}
+
+            window.location.href = window.location.href.split("?")[0]+"?q="+document.getElementById("search").value + "&f=" + filters
+        }
+    </script>
 </body>
 </html>
