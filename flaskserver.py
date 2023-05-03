@@ -21,13 +21,11 @@ def homePage():
         if currentScript not in randomScripts:
             randomScripts.append(currentScript)
     
-    return render_template('/web/index.html', randoms=randomScripts)
+    return render_template('web/index.html', randoms=randomScripts)
 
 @app.route("/s", methods=["GET"])
 def screenPage():
-    response = make_response(open('./screenplays/'+request.args.get('screen', None), "rb"))
-    response.headers['Content-Type'] = 'application/pdf'
-    return response
+    return send_file('screenplays/'+request.args.get('screen', None))
 
 @app.route("/search", methods=["GET"])
 def searchPage():
@@ -36,10 +34,10 @@ def searchPage():
     print(filters)
     
     if (not toSearch and not filters):
-        return render_template('/web/search.html', results=screenplays)
+        return render_template('web/search.html', results=screenplays)
     
     if (toSearch == "bátya"):
-        return send_file('./static/pics/orangyalok.jpg', mimetype='image/gif')
+        return send_file('static/pics/orangyalok.jpg', mimetype='image/gif')
     
     results = []
     
@@ -48,7 +46,7 @@ def searchPage():
             if i[1].lower().find(toSearch.lower()) != -1:
                 results.append(i)
         
-        return render_template('/web/search.html', results=results)
+        return render_template('web/search.html', results=results)
 
     for i in screenplays:
         isCorrect = True
@@ -63,7 +61,7 @@ def searchPage():
             results.append(i)
                 
     
-    return render_template('/web/search.html', results=results)
+    return render_template('web/search.html', results=results)
 
 
 app.run(host='0.0.0.0', port=80, debug=True)
