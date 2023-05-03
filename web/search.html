@@ -13,16 +13,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Search</title>
     <script>
-<<<<<<< HEAD
         function search() {
             window.location.href = window.location.href.split("?")[0] + "?search=" + document.getElementById("search").value
         }
         function showSelectedResult(name) {
             window.location.href = window.location.href.split("/")[0] + "/screenplayss/" + name
-=======
-        function search(){
-            window.location.href = window.location.href.split("?")[0]+"?q="+document.getElementById("search").value
->>>>>>> 19faf2604d2057a6a36c4d8711f50bced5196768
         }
     </script>
     <style>
@@ -34,8 +29,115 @@
         .result-box {
             background-color: #FFF;
             padding: 20px;
+            margin: 40px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .box {
+            background-color: #ff9900;
+            color: #fff;
+            margin: 10px;
+            padding: 80px;
+            text-align: center;
+            width: 500px;
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .search-form {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
             margin-bottom: 10px;
-            margin-top:20px;
+        }
+
+        .search-input {
+            margin-right: 10px;
+            padding: 10px;
+            width: 400px;
+        }
+
+        .search-button {
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 25px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .search-box input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            width: 400px;
+            margin-right: 10px;
+            border: 1px solid black;
+        }
+
+        .search-box button[type="submit"] {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #ff9900;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="text"]:focus {
+            outline-color: #ff9900;
+        }
+
+        .green-box {
+            background-color: #3CB371;
+            color: #fff;
+            margin: 10px;
+            padding: 80px;
+            text-align: center;
+            max-width: 1025px;
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 120px;
+        }
+
+        #megtekintes {
+            text-decoration: none;
+            color: black;
+        }
+
+        #megtekintes:hover {
+            color: white;
         }
     </style>
 </head>
@@ -44,43 +146,30 @@
     <div class="container">
         <center>
             <h1>Search</h1>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" id="search" placeholder="Keresés" aria-label="Keresés"
-                    aria-describedby="button-addon2">
-                <button type="submit" class="btn btn-warning" onclick="search()" id="searchButton">Keresés</button>
+            <div class="search-box">
+                <input type="text" class="form-control" id="search" placeholder="Kezdjen el gépelni..."
+                    style="border: 1px solid #ccc;">
+                <button type="submit" onclick="search()" id="searchButton">Keresés</button>
             </div>
-            <div class="green-box">
+
+            <div class="row">
                 {% if results %}
                 {% for result in results %}
-                <div class="result-box">
+                <div class="box">
                     <h1>{{ result[1] }}</h1>
                     <p>By: {{ result[2] }}</p>
                     <p>{{ result[5] }}</p>
-                    <a href="screen?screen={{ result[5] }}" target="_blank">asd</a>
+                    <a href="screen?screen={{ result[5] }}" target="_blank" id="megtekintes">asd</a>
                 </div>
+                {% if loop.index % 3 == 0 %}
+                <div class="medium-gap"></div>
+                {% endif %}
                 {% endfor %}
                 {% endif %}
             </div>
 
-<<<<<<< HEAD
-        </center>
-=======
-    <input type="text" id="search">
-    <input type="button" value="Search" onclick="search()">
 
-    <div>
-        {% if results %}
-        {% for result in results %}
-        <div>
-            <h1>{{ result[1] }}</h1>
-            <p>By: {{ result[2] }}</p>
-            <p>{{ result[5] }}</p>
-            <a href="screen?s={{ result[5] }}" target="_blank">asd</a>
-        </div>
-        {% endfor %}
-        {% endif %}
-    </div>
->>>>>>> 19faf2604d2057a6a36c4d8711f50bced5196768
+        </center>
 </body>
 
 </html>
