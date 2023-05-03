@@ -136,51 +136,48 @@
 
 <body>
     <div class="container">
-        <center>
-            <h1>Search</h1>
-            <div>
-                <label for="genre-drama">Dráma</label>
-                <input type="checkbox" id="genre-drama" name="genre-drama">
-                <label for="genre-comedy">Komédia</label>
-                <input type="checkbox" id="genre-comedy" name="genre-comedy">
-            </div>
-            <div class="search-box">
-                <input type="text" class="form-control" id="search" placeholder="Kezdjen el gépelni..."
-                    style="border: 1px solid #ccc;">
-                <button type="submit" onclick="search()" id="searchButton">Keresés</button>
-            </div>
+        <h1>Search</h1>
+        <div>
+            <label for="genre-drama">Dráma</label>
+            <input type="checkbox" id="genre-drama" name="genre-drama">
+            <label for="genre-comedy">Komédia</label>
+            <input type="checkbox" id="genre-comedy" name="genre-comedy">
+        </div>
+        <div class="search-box">
+            <input type="text" class="form-control" id="search" placeholder="Kezdjen el gépelni..."
+                style="border: 1px solid #ccc;">
+            <button type="submit" onclick="search()" id="searchButton">Keresés</button>
+        </div>
 
-            <div class="row">
-                {% if results %}
-                {% for result in results %}
-                <div class="box">
-                    <h1>{{ result[1] }}</h1>
-                    <p>By: {{ result[2] }}</p>
-                    <p>{{ result[5] }}</p>
-                    <a href="screen?screen={{ result[5] }}" target="_blank" id="megtekintes">asd</a>
-                </div>
-                {% if loop.index % 3 == 0 %}
-                <div class="medium-gap"></div>
-                {% endif %}
-                {% endfor %}
-                {% endif %}
+        <div class="row">
+            {% if results %}
+            {% for result in results %}
+            <div class="box">
+                <h1>{{ result[1] }}</h1>
+                <p>By: {{ result[2] }}</p>
+                <p>{{ result[5] }}</p>
+                <a href="s?screen={{ result[5] }}" target="_blank" id="megtekintes">asd</a>
             </div>
+            {% if loop.index % 3 == 0 %}
+            <div class="medium-gap"></div>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+        </div>
 
-
-        </center>
         <script>
             let dramaCheckbox = document.getElementById("genre-drama")
             let comedyCheckbox = document.getElementById("genre-comedy")
-    
-            function search(){
+
+            function search() {
                 let filters = ""
-    
-                if (dramaCheckbox.checked){filters+=",dráma"}
-                if (comedyCheckbox.checked){filters+=",komédia"}
-    
-                if (filters.startsWith(",")){filters = filters.slice(1)}
-    
-                window.location.href = window.location.href.split("?")[0]+"?q="+document.getElementById("search").value + "&f=" + filters
+
+                if (dramaCheckbox.checked) { filters += ",dráma" }
+                if (comedyCheckbox.checked) { filters += ",komédia" }
+
+                if (filters.startsWith(",")) { filters = filters.slice(1) }
+
+                window.location.href = window.location.href.split("?")[0] + "?q=" + document.getElementById("search").value + "&f=" + filters
             }
         </script>
 </body>

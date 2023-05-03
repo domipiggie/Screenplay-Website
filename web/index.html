@@ -152,7 +152,7 @@
       <div class="box">
         <h2>{{ random[1] }}</h2>
         <p>{{ random[2] }}</p>
-        <a href="screen?screen={{ random[5] }}" target="_blank" id="megtekintes">Megtekintés</a>
+        <a href="s?screen={{ random[5] }}" target="_blank" id="megtekintes">Megtekintés</a>
       </div>
       {% endfor %}
       {% endif %}
@@ -170,7 +170,7 @@
     let searchField = document.getElementById("search")
 
     function search(){
-      window.location.href = window.location.href + "search?search=" + document.getElementById("search").value
+      window.location.href = window.location.href + "search?s=" + document.getElementById("search").value
     }
 
     searchField.addEventListener("keypress", function(event){
