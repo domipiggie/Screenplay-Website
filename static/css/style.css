@@ -1,18 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
-
-body {
-  box-sizing: border-box;
-  margin: 0;
-  font-family: 'Alata', sans-serif;
-  background-color: white;
-  
-}
 ul {
   list-style-type: none;
 }
-a {
-  text-decoration: none;
-  font-size: 2rem;
+
+body {
+  background-color: #eee;
+}
+
+.search {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  width: 400px;
+  margin-right: 10px;
+  border: 1px solid black;
+}
+
+.searchButton {
+  padding: 10px;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.green-box {
+  background-color: #3CB371;
+  color: #fff;
+  margin: 10px;
+  padding: 80px;
+  text-align: center;
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 120px;
 }
 
 /* Navbar */
@@ -27,18 +48,6 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
-}
-.nav-toggle {
-  color: tomato;
-  font-size: 2rem;
-  background: transparent;
-  border-color: transparent;
-  transition: all 0.3s linear;
-  cursor: pointer;
-}
-
-.nav-toggle:hover {
-  transform: rotate(9deg);
 }
 
 .logo {
@@ -60,91 +69,41 @@ nav {
   padding-left: 1.5rem;
 }
 
-/* THE LOGIC */
-
-/* First: Hide the show icon by default */
-.social-icons {
-  display: none;
+.nav-center {
+  max-width: 1170px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
 }
 
-/* 2. Hide the links if it's height is not enough to accommodate. That's how html works, if it's height is not enough it won't show, so as the user reduces the size of the window it decreases the height of the parent of the link item but the problem is that if you don't give it overflow:hidden it will jump to next line so hidden:0 and overflow:hidden will hide an html parent container */
+.nav-header {
+  padding: 0;
+}
 
-/* By default let's hide this */
 .links {
-  height: 0;
-  overflow: hidden;
-  transition: all 0.3s linear;
-}
-
-/* This is the class we will add to the links by js to show the links again because it has a height */
-.show-links {
   height: auto;
-  transition: all 0.3s linear;
-}
-
-/* Implementations */
-
-  .nav-center {
-    max-width: 1170px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-  }
-  .nav-header {
-    padding: 0;
-  }
-  /* Hide toggle on the large screen */
-  .nav-toggle {
-    display: none;
-  }
-  /* Give the links a height to show on a large screen */
-  .links {
-    height: auto;
-    display: flex;
-  }
-  .links a {
-    padding: 0;
-    margin: 0 0.5rem;
-    color: antiquewhite;
-  }
-  .links a:hover {
-    padding: 0;
-    background: transparent;
-    transform: rotate(10deg);
-    color: #493b2a;
-  }
-#big-white {
-  background-color: bisque;
-  margin: 40px;
-  margin-left: 45px;
-  border: 1px solid black;
-}
-
-#little-white{
-  background-color: white;
-  margin-top: 30px;
-  border: 1px solid black;
-
-}
-
-#card {
-  width: 200px;
-  height: 200px;
-  border: 1px solid black;
-  padding: 1rem 1rem;
-  margin: 10px;
   display: flex;
 }
-.jobboldal {
-  justify-content: end;
-  display: flex;
+
+.links a {
+  padding: 0;
+  margin: 0 0.5rem;
+  color: antiquewhite;
 }
-.space {
-  margin-left: 40%;
+
+.links a:hover {
+  padding: 0;
+  background: transparent;
+  transform: rotate(10deg);
+  color: #493b2a;
 }
-.baloldal {
-  justify-content: end;
-  display: flex;
-} 
+
+h2 a{
+  color: white;
+}
+h2 a:hover {
+  color: wheat;
+  text-decoration: none;
+}

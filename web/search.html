@@ -2,184 +2,161 @@
 <html lang="hu">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="https://cdn.logojoy.com/wp-content/uploads/2018/05/29153827/81.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="icon" href="https://cdn.logojoy.com/wp-content/uploads/2018/05/29153827/81.png">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Search</title>
-    <style>
-        .green-box {
-            background-color: #8BC34A;
-            padding: 20px;
-        }
+    <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+  <link rel="icon" href="https://cdn.logojoy.com/wp-content/uploads/2018/05/29153827/81.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <title>Search</title>
+  <link rel="stylesheet" href="../static/css/style.css">
 
-        .result-box {
-            background-color: #FFF;
-            padding: 20px;
-            margin: 40px;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .row {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-        }
-
-        .box {
-            background-color: #ff9900;
-            color: #fff;
-            margin: 10px;
-            padding: 80px;
-            text-align: center;
-            width: 500px;
-            max-width: 100%;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        .search-form {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .search-input {
-            margin-right: 10px;
-            padding: 10px;
-            width: 400px;
-        }
-
-        .search-button {
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 25px;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .search-box {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 20px 0;
-        }
-
-        .search-box input[type="text"] {
-            padding: 10px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            width: 400px;
-            margin-right: 10px;
-            border: 1px solid black;
-        }
-
-        .search-box button[type="submit"] {
-            padding: 10px;
-            font-size: 16px;
-            background-color: #ff9900;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        input[type="text"]:focus {
-            outline-color: #ff9900;
-        }
-
-        .green-box {
-            background-color: #3CB371;
-            color: #fff;
-            margin: 10px;
-            padding: 80px;
-            text-align: center;
-            max-width: 1025px;
-            width: 100%;
-            border-radius: 10px;
-            margin-top: 120px;
-        }
-
-        #megtekintes {
-            text-decoration: none;
-            color: black;
-        }
-
-        #megtekintes:hover {
-            color: white;
-        }
-    </style>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Search</h1>
-        <div>
-            <label for="genre-drama">Dráma</label>
-            <input type="checkbox" id="genre-drama" name="genre-drama">
-            <label for="genre-comedy">Komédia</label>
-            <input type="checkbox" id="genre-comedy" name="genre-comedy">
+    <nav>
+        <div class="nav-center">
+          <div class="nav-header">
+            <h2><a href="/">Script Finder</a></h2>
+          </div>
+          <ul class="links">
+            <li>
+              <a class="btn btn-dark px-3" href="https://github.com/domipiggie/Screenplay-Website" role="button"><i
+                  class="fab fa-github"></i></a>
+            </li>
+          </ul>
         </div>
-        <div class="search-box">
-            <input type="text" class="form-control" id="search" placeholder="Kezdjen el gépelni..."
-                style="border: 1px solid #ccc;">
-            <button type="submit" onclick="search()" id="searchButton">Keresés</button>
+      </nav>
+    <div class="container-fluid">
+        <div class="d-flex flex-row justify-content-center align-items-center p-2">
+            <input type="text" class="form-control search" id="search" placeholder="Kezdjen el gépelni...">
+            <button type="submit" onclick="search()" class="searchButton btn-primary" id="searchButton">Keresés</button>
         </div>
 
         <div class="row">
-            {% if results %}
-            {% for result in results %}
-            <div class="box">
-                <h1>{{ result[1] }}</h1>
-                <p>By: {{ result[2] }}</p>
-                <p>{{ result[5] }}</p>
-                <a href="s?screen={{ result[5] }}" target="_blank" id="megtekintes">asd</a>
+            <div class="col-sm-12 col-md-2 col-lg-2">
+                <h5 style="text-align: center;">Szűrő<button class="navbar-toggler toggler-example" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false"
+                    aria-label="Toggle navigation"><span class="dark-blue-text"><i
+                            class="fas fa-bars fa-1x"></i></span></button></h5>
+                
+
+                <div class="collapse show navbar-collapse" id="navbarSupportedContent1">
+                    <div class="list-group list-group-light">
+                        <input class="form-control" placeholder="Műfaj" readonly>
+                        <li class="list-group-item">
+                            <input class="form-check-input" type="checkbox" id="genre-action" />
+                            <label class="form-check-label" for="genre-action">Akció</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input" type="checkbox" id="genre-biography" />
+                            <label class="form-check-label" for="genre-biography">Biográfia</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input" type="checkbox" id="genre-drama" />
+                            <label class="form-check-label" for="genre-drama">Dráma</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input" type="checkbox" id="genre-erotic" />
+                            <label class="form-check-label" for="genre-erotic">Erotikus</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input" type="checkbox" id="genre-fantasy" />
+                            <label class="form-check-label" for="genre-fantasy">Fantasy</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input" type="checkbox" id="genre-horror" />
+                            <label class="form-check-label" for="genre-horror">Horror</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input" type="checkbox" id="genre-unknown" />
+                            <label class="form-check-label" for="genre-unknown">Ismeretlen</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input" type="checkbox" id="genre-adventure" />
+                            <label class="form-check-label" for="genre-adventure">Kaland</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input" type="checkbox" id="genre-comedy" />
+                            <label class="form-check-label" for="genre-comedy">Komédia</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input" type="checkbox" id="genre-musical" />
+                            <label class="form-check-label" for="genre-musical">Musical</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input" type="checkbox" id="genre-noir" />
+                            <label class="form-check-label" for="genre-noir">Noir</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input" type="checkbox" id="genre-scifi" />
+                            <label class="form-check-label" for="genre-scifi">Sci-Fi</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input" type="checkbox" id="genre-thriller" />
+                            <label class="form-check-label" for="genre-thriller">Thriller</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input" type="checkbox" id="genre-comedy2" />
+                            <label class="form-check-label" for="genre-comedy2">Vígjáték</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input" type="checkbox" id="genre-western" />
+                            <label class="form-check-label" for="genre-western">Western</label>
+                        </li>
+                    </div>
+
+                    <div class="list-group list-group-light">
+                        <input class="form-control" placeholder="Típus" readonly>
+                        <li class="list-group-item">
+                            <input class="form-check-input" type="checkbox" id="type-draft" />
+                            <label class="form-check-label" for="type-draft">Vázlat</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input" type="checkbox" id="type-final" />
+                            <label class="form-check-label" for="type-final">Végleges</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input" type="checkbox" id="type-shooting" />
+                            <label class="form-check-label" for="type-shooting">Forgatási</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input" type="checkbox" id="type-unspecified" />
+                            <label class="form-check-label" for="type-unspecified">Nem meghatározott</label>
+                        </li>
+                    </div>
+                </div>
             </div>
-            {% if loop.index % 3 == 0 %}
-            <div class="medium-gap"></div>
-            {% endif %}
-            {% endfor %}
-            {% endif %}
+            <div class="col-sm-12 col-md-8 col-lg-8">
+                <div class="row">
+                    {% if results %}
+                    {% for result in results %}
+                    <div class="col-sm-12 col-md-6 mb-3 d-flex align-items-stretch">
+                        <div class="card" style="width:100%">
+                            <img class="card-img-top" src="../static/pics/{{ result[6] }}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ result[1] }}</h5>
+                                <p class="card-text">Írta: {{ result[2] }}</p>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <a href="s?screen={{ result[5] }}" target="_blank"
+                                    class="btn btn-primary">Megtekintés</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-2 col-lg-2"></div>
         </div>
 
-        <script>
-            let dramaCheckbox = document.getElementById("genre-drama")
-            let comedyCheckbox = document.getElementById("genre-comedy")
-
-            function search() {
-                let filters = ""
-
-                if (dramaCheckbox.checked) { filters += ",dráma" }
-                if (comedyCheckbox.checked) { filters += ",komédia" }
-
-                if (filters.startsWith(",")) { filters = filters.slice(1) }
-
-                window.location.href = window.location.href.split("?")[0] + "?q=" + document.getElementById("search").value + "&f=" + filters
-            }
-        </script>
+    </div>
 </body>
 
 </html>

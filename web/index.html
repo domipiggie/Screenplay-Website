@@ -5,180 +5,90 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../static/css/style.css">
   <link rel="icon" href="https://cdn.logojoy.com/wp-content/uploads/2018/05/29153827/81.png">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <!-- Styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <title>Üdvözöljük Weboldalunkon!</title>
-  <style>
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+  <link rel="stylesheet" href="../static/css/style.css">
 
-    .row {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-    }
-
-    .box {
-      background-color: #ff9900;
-      color: #fff;
-      margin: 10px;
-      padding: 80px;
-      text-align: center;
-      width: 500px;
-      max-width: 100%;
-      border-radius: 10px;
-      margin-top: 20px;
-    }
-
-    .search-form {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-
-    .search-input {
-      margin-right: 10px;
-      padding: 10px;
-      width: 400px;
-    }
-
-    .search-button {
-      border: none;
-      color: white;
-      padding: 10px 20px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
-      cursor: pointer;
-      border-radius: 25px;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .search-box {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 20px 0;
-    }
-
-    .search-box input[type="text"] {
-      padding: 10px;
-      font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      width: 400px;
-      margin-right: 10px;
-      border: 1px solid black;
-    }
-
-    .search-box button[type="submit"] {
-      padding: 10px;
-      font-size: 16px;
-      background-color: #ff9900;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    input[type="text"]:focus {
-      outline-color: #ff9900;
-    }
-
-    .green-box {
-      background-color: #3CB371;
-      color: #fff;
-      margin: 10px;
-      padding: 80px;
-      text-align: center;
-      max-width: 1025px;
-      width: 100%;
-      border-radius: 10px;
-      margin-top: 120px;
-    }
-    #megtekintes{
-      text-decoration: none;
-      color: black;
-    }
-    #megtekintes:hover {
-  color: white;
-}
-  </style>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
   <nav>
     <div class="nav-center">
-      <!-- nav header -->
       <div class="nav-header">
-        <h2>Script Finder</h2>
-        <!-- <img src="./logo.svg" class="logo" alt="logo" /> -->
-        <button class="nav-toggle">
-          <i class="fas fa-bars"></i>
-        </button>
+        <h2><a href="/">Script Finder</a></h2>
       </div>
-      <!-- links -->
       <ul class="links">
         <li>
           <a class="btn btn-dark px-3" href="https://github.com/domipiggie/Screenplay-Website" role="button"><i
               class="fab fa-github"></i></a>
-    </div>
-    </li>
-    </ul>
+        </li>
+      </ul>
     </div>
   </nav>
-  <div class="container">
-    <div class="search-box">
-      <input type="text" class="form-control" id="search" placeholder="Kezdjen el gépelni...">
-      <button type="submit" onclick="search()" id="searchButton">Keresés</button>
+  <div class="container-fluid">
+    <div class="d-flex flex-row justify-content-center align-items-center p-2">
+      <input type="text" class="form-control search" id="search" placeholder="Kezdjen el gépelni...">
+      <button type="submit" onclick="search()" class="searchButton btn-primary" id="searchButton">Keresés</button>
     </div>
+
     <div class="row">
-      {% if randoms %}
-      {% for random in randoms %}
-      <div class="box">
-        <h2>{{ random[1] }}</h2>
-        <p>{{ random[2] }}</p>
-        <a href="s?screen={{ random[5] }}" target="_blank" id="megtekintes">Megtekintés</a>
+      <div class="col-sm-12 col-md-2 col-lg-2"></div>
+      <div class="col-sm-12 col-md-8 col-lg-8">
+        <div class="row">
+          {% if randoms %}
+          {% for random in randoms %}
+          <div class="col-sm-12 col-md-6 mb-3 d-flex align-items-stretch">
+            <div class="card" style="width:100%">
+              <img class="card-img-top" src="../static/pics/{{ random[6] }}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">{{ random[1] }}</h5>
+                <p class="card-text">Írta: {{ random[2] }}</p>
+              </div>
+              <div class="card-footer text-muted">
+                <a href="s?screen={{ random[5] }}" target="_blank" class="btn btn-primary">Megtekintés</a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          {% endif %}
+        </div>
       </div>
-      {% endfor %}
-      {% endif %}
+      <div class="col-sm-12 col-md-2 col-lg-2"></div>
     </div>
-  </div>
-  <div class="row">
-    <div class="green-box">
-      <h2>Tudta?</h2>
-      <p>A fejlesztők nagyon sokat dolgoztak azon, hogy ön megtalálja kedvenc tartalmát. Úgy gondoljuk, hogy tudná
-        honorálni munkánkat egy 5-ös osztályzattal.</p>
+
+    <div class="row">
+      <div class="col-sm-12 col-md-2 col-lg-2"></div>
+      <div class="green-box col-sm-12 col-md-8 col-lg-8">
+        <h2>Tudta?</h2>
+        <p>A fejlesztők nagyon sokat dolgoztak azon, hogy ön megtalálja kedvenc tartalmát. Úgy gondoljuk, hogy tudná
+          honorálni munkánkat egy 5-ös osztályzattal.</p>
+      </div>
+      <div class="col-sm-12 col-md-2 col-lg-2"></div>
     </div>
   </div>
 
   <script>
     let searchField = document.getElementById("search")
 
-    function search(){
+    function search() {
       window.location.href = window.location.href + "search?q=" + document.getElementById("search").value
     }
 
-    searchField.addEventListener("keypress", function(event){
-      if (event.key == "Enter"){
+    searchField.addEventListener("keypress", function (event) {
+      if (event.key == "Enter") {
         event.preventDefault()
         document.getElementById("searchButton").click()
       }
     })
   </script>
 </body>
+
 </html>
