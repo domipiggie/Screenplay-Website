@@ -31,7 +31,6 @@ def screenPage():
 def searchPage():
     toSearch = request.args.get('q', None)
     filters = request.args.get('f', None)
-    print(filters)
     
     if (not toSearch and not filters):
         return render_template('web/search.html', results=screenplays)
@@ -43,21 +42,23 @@ def searchPage():
     
     if (not filters):
         for i in screenplays:
-            if i[1].lower().find(toSearch.lower()) != -1:
+            if i[1].lower().find(toSearch.lower()) != -1 or i[2].lower().find(toSearch.lower()) != -1:
                 results.append(i)
         
         return render_template('web/search.html', results=results)
-
+    
+    filters = filters.split(",")
+    
     for i in screenplays:
-        isCorrect = True
+        isCorrect = False
         
         j = 0
-        while isCorrect and j < len(filters):
-            if (i[3].find(filters[j]) == -1):
-                isCorrect = False
+        while not isCorrect and j < len(filters):
+            if (i[3].find(filters[j]) != -1 or i[4].find(filters[j]) != -1):
+                isCorrect = True
             j+=1
         
-        if (isCorrect):
+        if (isCorrect and (i[1].lower().find(toSearch.lower()) != -1 or i[2].lower().find(toSearch.lower()) != -1)):
             results.append(i)
                 
     
