@@ -19,7 +19,7 @@ def screenplayContainGenre(screenplay, genreList):
             
     j = 0
     while not isCorrect and j < len(genreList):
-        if (screenplay[3].find(genreList[j]) != -1):
+        if (screenplay[3].lower().find(genreList[j]) != -1):
             isCorrect = True
         j+=1
     
