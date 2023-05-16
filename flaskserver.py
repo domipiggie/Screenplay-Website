@@ -71,7 +71,7 @@ def searchPage():
             if (titleOrAuthContainSearch(i, toSearch)):
                 results.append(i)
         
-        return render_template('web/search.html', results=results)
+        return render_template('web/search.html', results=results, search=toSearch)
     
     if (not types):
         filters = filters.split(",")
@@ -81,7 +81,7 @@ def searchPage():
             if (titleOrAuthContainSearch(i, toSearch) and screenplayContainGenre(i, filters)):
                 results.append(i)
             
-        return render_template('web/search.html', results=results)
+        return render_template('web/search.html', results=results, filters=filters)
     
     if (not filters):
         types = types.split(",")
@@ -91,7 +91,7 @@ def searchPage():
             if (titleOrAuthContainSearch(i, toSearch) and screenplayContainType(i, types)):
                 results.append(i)
             
-        return render_template('web/search.html', results=results)
+        return render_template('web/search.html', results=results, types=types)
     
     filters = filters.split(",")
     types = types.split(",")
@@ -101,7 +101,7 @@ def searchPage():
         if (titleOrAuthContainSearch(i, toSearch) and screenplayContainGenre(i, filters) and screenplayContainType(i, types)):
             results.append(i)
     
-    return render_template('web/search.html', results=results)
+    return render_template('web/search.html', results=results, types=types, search=toSearch, filters=filters)
 
 
 

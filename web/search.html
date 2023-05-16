@@ -35,7 +35,11 @@
     </nav>
     <div class="container-fluid">
         <div class="d-flex flex-row justify-content-center align-items-center p-2">
+            {% if search %}
+            <input type="text" class="form-control search" id="search" placeholder="Kezdjen el gépelni..." value="{{ search }}">
+            {% else %}
             <input type="text" class="form-control search" id="search" placeholder="Kezdjen el gépelni...">
+            {% endif %}
             <button type="submit" onclick="search()" class="searchButton btn-primary" id="searchButton">Keresés</button>
         </div>
 
@@ -52,63 +56,64 @@
                     <div class="list-group list-group-light">
                         <input class="form-control" placeholder="Műfaj" readonly>
                         <li class="list-group-item">
-                            <input class="form-check-input" type="checkbox" id="genre-action" />
+                            <input class="form-check-input" type="checkbox" id="genre-action" {% if "akció" in filters %}checked{% endif %}/>
+                            
                             <label class="form-check-label" for="genre-action">Akció</label>
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input" type="checkbox" id="genre-biography" />
+                            <input class="form-check-input" type="checkbox" id="genre-biography" {% if "biográfia" in filters %}checked{% endif %}/>
                             <label class="form-check-label" for="genre-biography">Biográfia</label>
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input" type="checkbox" id="genre-drama" />
+                            <input class="form-check-input" type="checkbox" id="genre-drama" {% if "dráma" in filters %}checked{% endif %}/>
                             <label class="form-check-label" for="genre-drama">Dráma</label>
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input" type="checkbox" id="genre-erotic" />
+                            <input class="form-check-input" type="checkbox" id="genre-erotic" {% if "erotikus" in filters %}checked{% endif %}/>
                             <label class="form-check-label" for="genre-erotic">Erotikus</label>
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input" type="checkbox" id="genre-fantasy" />
+                            <input class="form-check-input" type="checkbox" id="genre-fantasy" {% if "fantasy" in filters %}checked{% endif %}/>
                             <label class="form-check-label" for="genre-fantasy">Fantasy</label>
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input" type="checkbox" id="genre-horror" />
+                            <input class="form-check-input" type="checkbox" id="genre-horror" {% if "horror" in filters %}checked{% endif %}/>
                             <label class="form-check-label" for="genre-horror">Horror</label>
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input" type="checkbox" id="genre-unknown" />
+                            <input class="form-check-input" type="checkbox" id="genre-unknown" {% if "ismeretlen" in filters %}checked{% endif %}/>
                             <label class="form-check-label" for="genre-unknown">Ismeretlen</label>
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input" type="checkbox" id="genre-adventure" />
+                            <input class="form-check-input" type="checkbox" id="genre-adventure" {% if "kaland" in filters %}checked{% endif %}/>
                             <label class="form-check-label" for="genre-adventure">Kaland</label>
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input" type="checkbox" id="genre-comedy" />
+                            <input class="form-check-input" type="checkbox" id="genre-comedy" {% if "komédia" in filters %}checked{% endif %}/>
                             <label class="form-check-label" for="genre-comedy">Komédia</label>
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input" type="checkbox" id="genre-musical" />
+                            <input class="form-check-input" type="checkbox" id="genre-musical" {% if "musical" in filters %}checked{% endif %}/>
                             <label class="form-check-label" for="genre-musical">Musical</label>
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input" type="checkbox" id="genre-noir" />
+                            <input class="form-check-input" type="checkbox" id="genre-noir" {% if "noir" in filters %}checked{% endif %}/>
                             <label class="form-check-label" for="genre-noir">Noir</label>
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input" type="checkbox" id="genre-scifi" />
+                            <input class="form-check-input" type="checkbox" id="genre-scifi" {% if "sci-fi" in filters %}checked{% endif %}/>
                             <label class="form-check-label" for="genre-scifi">Sci-Fi</label>
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input" type="checkbox" id="genre-thriller" />
+                            <input class="form-check-input" type="checkbox" id="genre-thriller" {% if "thriller" in filters %}checked{% endif %}/>
                             <label class="form-check-label" for="genre-thriller">Thriller</label>
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input" type="checkbox" id="genre-comedy2" />
+                            <input class="form-check-input" type="checkbox" id="genre-comedy2" {% if "vígjáték" in filters %}checked{% endif %}/>
                             <label class="form-check-label" for="genre-comedy2">Vígjáték</label>
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input" type="checkbox" id="genre-western" />
+                            <input class="form-check-input" type="checkbox" id="genre-western" {% if "western" in filters %}checked{% endif %}/>
                             <label class="form-check-label" for="genre-western">Western</label>
                         </li>
                     </div>
@@ -116,19 +121,19 @@
                     <div class="list-group list-group-light">
                         <input class="form-control" placeholder="Típus" readonly>
                         <li class="list-group-item">
-                            <input class="form-check-input" type="checkbox" id="type-draft" />
+                            <input class="form-check-input" type="checkbox" id="type-draft" {% if "draft_script" in types %}checked{% endif %}/>
                             <label class="form-check-label" for="type-draft">Vázlat</label>
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input" type="checkbox" id="type-final" />
+                            <input class="form-check-input" type="checkbox" id="type-final" {% if "final_script" in types %}checked{% endif %}/>
                             <label class="form-check-label" for="type-final">Végleges</label>
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input" type="checkbox" id="type-shooting" />
+                            <input class="form-check-input" type="checkbox" id="type-shooting" {% if "shooting_script" in types %}checked{% endif %}/>
                             <label class="form-check-label" for="type-shooting">Forgatási</label>
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input" type="checkbox" id="type-unspecified" />
+                            <input class="form-check-input" type="checkbox" id="type-unspecified" {% if "unspecified_script" in types %}checked{% endif %}/>
                             <label class="form-check-label" for="type-unspecified">Nem meghatározott</label>
                         </li>
                     </div>
@@ -210,7 +215,7 @@
                 if (type.startsWith(",")) { type = type.slice(1) }
 
 
-                window.location.href = window.location.href.split("?")[0] + "?q=" + document.getElementById("search").value + "&f=" + filters + "&t" + type
+                window.location.href = window.location.href.split("?")[0] + "?q=" + document.getElementById("search").value + "&f=" + filters + "&t=" + type
             }
         </script>
     </div>
